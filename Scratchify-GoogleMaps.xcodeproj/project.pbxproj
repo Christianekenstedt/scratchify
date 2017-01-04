@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA9C0FD41E1D34D1000E554C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C0FD31E1D34D1000E554C /* AppDelegate.swift */; };
+		AA9C0FD61E1D34D1000E554C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C0FD51E1D34D1000E554C /* ViewController.swift */; };
+		AA9C0FD91E1D34D1000E554C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9C0FD71E1D34D1000E554C /* Main.storyboard */; };
+		AA9C0FDC1E1D34D1000E554C /* Scratchify_GoogleMaps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA9C0FDA1E1D34D1000E554C /* Scratchify_GoogleMaps.xcdatamodeld */; };
+		AA9C0FDE1E1D34D1000E554C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9C0FDD1E1D34D1000E554C /* Assets.xcassets */; };
+		AA9C0FE11E1D34D1000E554C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9C0FDF1E1D34D1000E554C /* LaunchScreen.storyboard */; };
+		AA9C0FEC1E1D34D1000E554C /* Scratchify_GoogleMapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C0FEB1E1D34D1000E554C /* Scratchify_GoogleMapsTests.swift */; };
+		AA9C0FF71E1D34D2000E554C /* Scratchify_GoogleMapsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C0FF61E1D34D2000E554C /* Scratchify_GoogleMapsUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA9C0FE81E1D34D1000E554C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA9C0FC81E1D34D1000E554C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA9C0FCF1E1D34D1000E554C;
+			remoteInfo = "Scratchify-GoogleMaps";
+		};
+		AA9C0FF31E1D34D2000E554C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA9C0FC81E1D34D1000E554C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA9C0FCF1E1D34D1000E554C;
+			remoteInfo = "Scratchify-GoogleMaps";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA9C0FD01E1D34D1000E554C /* Scratchify-GoogleMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scratchify-GoogleMaps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9C0FD31E1D34D1000E554C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA9C0FD51E1D34D1000E554C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AA9C0FD81E1D34D1000E554C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA9C0FDB1E1D34D1000E554C /* Scratchify_GoogleMaps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Scratchify_GoogleMaps.xcdatamodel; sourceTree = "<group>"; };
+		AA9C0FDD1E1D34D1000E554C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA9C0FE01E1D34D1000E554C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AA9C0FE21E1D34D1000E554C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA9C0FE71E1D34D1000E554C /* Scratchify-GoogleMapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scratchify-GoogleMapsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9C0FEB1E1D34D1000E554C /* Scratchify_GoogleMapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scratchify_GoogleMapsTests.swift; sourceTree = "<group>"; };
+		AA9C0FED1E1D34D1000E554C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA9C0FF21E1D34D2000E554C /* Scratchify-GoogleMapsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scratchify-GoogleMapsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9C0FF61E1D34D2000E554C /* Scratchify_GoogleMapsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scratchify_GoogleMapsUITests.swift; sourceTree = "<group>"; };
+		AA9C0FF81E1D34D2000E554C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA9C0FCD1E1D34D1000E554C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9C0FE41E1D34D1000E554C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9C0FEF1E1D34D2000E554C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA9C0FC71E1D34D1000E554C = {
+			isa = PBXGroup;
+			children = (
+				AA9C0FD21E1D34D1000E554C /* Scratchify-GoogleMaps */,
+				AA9C0FEA1E1D34D1000E554C /* Scratchify-GoogleMapsTests */,
+				AA9C0FF51E1D34D2000E554C /* Scratchify-GoogleMapsUITests */,
+				AA9C0FD11E1D34D1000E554C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA9C0FD11E1D34D1000E554C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA9C0FD01E1D34D1000E554C /* Scratchify-GoogleMaps.app */,
+				AA9C0FE71E1D34D1000E554C /* Scratchify-GoogleMapsTests.xctest */,
+				AA9C0FF21E1D34D2000E554C /* Scratchify-GoogleMapsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA9C0FD21E1D34D1000E554C /* Scratchify-GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				AA9C0FD31E1D34D1000E554C /* AppDelegate.swift */,
+				AA9C0FD51E1D34D1000E554C /* ViewController.swift */,
+				AA9C0FD71E1D34D1000E554C /* Main.storyboard */,
+				AA9C0FDD1E1D34D1000E554C /* Assets.xcassets */,
+				AA9C0FDF1E1D34D1000E554C /* LaunchScreen.storyboard */,
+				AA9C0FE21E1D34D1000E554C /* Info.plist */,
+				AA9C0FDA1E1D34D1000E554C /* Scratchify_GoogleMaps.xcdatamodeld */,
+			);
+			path = "Scratchify-GoogleMaps";
+			sourceTree = "<group>";
+		};
+		AA9C0FEA1E1D34D1000E554C /* Scratchify-GoogleMapsTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA9C0FEB1E1D34D1000E554C /* Scratchify_GoogleMapsTests.swift */,
+				AA9C0FED1E1D34D1000E554C /* Info.plist */,
+			);
+			path = "Scratchify-GoogleMapsTests";
+			sourceTree = "<group>";
+		};
+		AA9C0FF51E1D34D2000E554C /* Scratchify-GoogleMapsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AA9C0FF61E1D34D2000E554C /* Scratchify_GoogleMapsUITests.swift */,
+				AA9C0FF81E1D34D2000E554C /* Info.plist */,
+			);
+			path = "Scratchify-GoogleMapsUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA9C0FCF1E1D34D1000E554C /* Scratchify-GoogleMaps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA9C0FFB1E1D34D2000E554C /* Build configuration list for PBXNativeTarget "Scratchify-GoogleMaps" */;
+			buildPhases = (
+				AA9C0FCC1E1D34D1000E554C /* Sources */,
+				AA9C0FCD1E1D34D1000E554C /* Frameworks */,
+				AA9C0FCE1E1D34D1000E554C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Scratchify-GoogleMaps";
+			productName = "Scratchify-GoogleMaps";
+			productReference = AA9C0FD01E1D34D1000E554C /* Scratchify-GoogleMaps.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA9C0FE61E1D34D1000E554C /* Scratchify-GoogleMapsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA9C0FFE1E1D34D2000E554C /* Build configuration list for PBXNativeTarget "Scratchify-GoogleMapsTests" */;
+			buildPhases = (
+				AA9C0FE31E1D34D1000E554C /* Sources */,
+				AA9C0FE41E1D34D1000E554C /* Frameworks */,
+				AA9C0FE51E1D34D1000E554C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA9C0FE91E1D34D1000E554C /* PBXTargetDependency */,
+			);
+			name = "Scratchify-GoogleMapsTests";
+			productName = "Scratchify-GoogleMapsTests";
+			productReference = AA9C0FE71E1D34D1000E554C /* Scratchify-GoogleMapsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AA9C0FF11E1D34D2000E554C /* Scratchify-GoogleMapsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA9C10011E1D34D2000E554C /* Build configuration list for PBXNativeTarget "Scratchify-GoogleMapsUITests" */;
+			buildPhases = (
+				AA9C0FEE1E1D34D2000E554C /* Sources */,
+				AA9C0FEF1E1D34D2000E554C /* Frameworks */,
+				AA9C0FF01E1D34D2000E554C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA9C0FF41E1D34D2000E554C /* PBXTargetDependency */,
+			);
+			name = "Scratchify-GoogleMapsUITests";
+			productName = "Scratchify-GoogleMapsUITests";
+			productReference = AA9C0FF21E1D34D2000E554C /* Scratchify-GoogleMapsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA9C0FC81E1D34D1000E554C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Christian Ekenstedt";
+				TargetAttributes = {
+					AA9C0FCF1E1D34D1000E554C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = R6X4ZRX54X;
+						ProvisioningStyle = Automatic;
+					};
+					AA9C0FE61E1D34D1000E554C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = R6X4ZRX54X;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AA9C0FCF1E1D34D1000E554C;
+					};
+					AA9C0FF11E1D34D2000E554C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = R6X4ZRX54X;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AA9C0FCF1E1D34D1000E554C;
+					};
+				};
+			};
+			buildConfigurationList = AA9C0FCB1E1D34D1000E554C /* Build configuration list for PBXProject "Scratchify-GoogleMaps" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA9C0FC71E1D34D1000E554C;
+			productRefGroup = AA9C0FD11E1D34D1000E554C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA9C0FCF1E1D34D1000E554C /* Scratchify-GoogleMaps */,
+				AA9C0FE61E1D34D1000E554C /* Scratchify-GoogleMapsTests */,
+				AA9C0FF11E1D34D2000E554C /* Scratchify-GoogleMapsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA9C0FCE1E1D34D1000E554C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9C0FE11E1D34D1000E554C /* LaunchScreen.storyboard in Resources */,
+				AA9C0FDE1E1D34D1000E554C /* Assets.xcassets in Resources */,
+				AA9C0FD91E1D34D1000E554C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9C0FE51E1D34D1000E554C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9C0FF01E1D34D2000E554C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA9C0FCC1E1D34D1000E554C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9C0FD61E1D34D1000E554C /* ViewController.swift in Sources */,
+				AA9C0FD41E1D34D1000E554C /* AppDelegate.swift in Sources */,
+				AA9C0FDC1E1D34D1000E554C /* Scratchify_GoogleMaps.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9C0FE31E1D34D1000E554C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9C0FEC1E1D34D1000E554C /* Scratchify_GoogleMapsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9C0FEE1E1D34D2000E554C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9C0FF71E1D34D2000E554C /* Scratchify_GoogleMapsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA9C0FE91E1D34D1000E554C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA9C0FCF1E1D34D1000E554C /* Scratchify-GoogleMaps */;
+			targetProxy = AA9C0FE81E1D34D1000E554C /* PBXContainerItemProxy */;
+		};
+		AA9C0FF41E1D34D2000E554C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA9C0FCF1E1D34D1000E554C /* Scratchify-GoogleMaps */;
+			targetProxy = AA9C0FF31E1D34D2000E554C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA9C0FD71E1D34D1000E554C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA9C0FD81E1D34D1000E554C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AA9C0FDF1E1D34D1000E554C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA9C0FE01E1D34D1000E554C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA9C0FF91E1D34D2000E554C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA9C0FFA1E1D34D2000E554C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA9C0FFC1E1D34D2000E554C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R6X4ZRX54X;
+				INFOPLIST_FILE = "Scratchify-GoogleMaps/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ekenstedt.Scratchify-GoogleMaps";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		AA9C0FFD1E1D34D2000E554C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R6X4ZRX54X;
+				INFOPLIST_FILE = "Scratchify-GoogleMaps/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ekenstedt.Scratchify-GoogleMaps";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		AA9C0FFF1E1D34D2000E554C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = R6X4ZRX54X;
+				INFOPLIST_FILE = "Scratchify-GoogleMapsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ekenstedt.Scratchify-GoogleMapsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scratchify-GoogleMaps.app/Scratchify-GoogleMaps";
+			};
+			name = Debug;
+		};
+		AA9C10001E1D34D2000E554C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = R6X4ZRX54X;
+				INFOPLIST_FILE = "Scratchify-GoogleMapsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ekenstedt.Scratchify-GoogleMapsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scratchify-GoogleMaps.app/Scratchify-GoogleMaps";
+			};
+			name = Release;
+		};
+		AA9C10021E1D34D2000E554C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = R6X4ZRX54X;
+				INFOPLIST_FILE = "Scratchify-GoogleMapsUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ekenstedt.Scratchify-GoogleMapsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Scratchify-GoogleMaps";
+			};
+			name = Debug;
+		};
+		AA9C10031E1D34D2000E554C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = R6X4ZRX54X;
+				INFOPLIST_FILE = "Scratchify-GoogleMapsUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ekenstedt.Scratchify-GoogleMapsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Scratchify-GoogleMaps";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA9C0FCB1E1D34D1000E554C /* Build configuration list for PBXProject "Scratchify-GoogleMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA9C0FF91E1D34D2000E554C /* Debug */,
+				AA9C0FFA1E1D34D2000E554C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA9C0FFB1E1D34D2000E554C /* Build configuration list for PBXNativeTarget "Scratchify-GoogleMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA9C0FFC1E1D34D2000E554C /* Debug */,
+				AA9C0FFD1E1D34D2000E554C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA9C0FFE1E1D34D2000E554C /* Build configuration list for PBXNativeTarget "Scratchify-GoogleMapsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA9C0FFF1E1D34D2000E554C /* Debug */,
+				AA9C10001E1D34D2000E554C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA9C10011E1D34D2000E554C /* Build configuration list for PBXNativeTarget "Scratchify-GoogleMapsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA9C10021E1D34D2000E554C /* Debug */,
+				AA9C10031E1D34D2000E554C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AA9C0FDA1E1D34D1000E554C /* Scratchify_GoogleMaps.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AA9C0FDB1E1D34D1000E554C /* Scratchify_GoogleMaps.xcdatamodel */,
+			);
+			currentVersion = AA9C0FDB1E1D34D1000E554C /* Scratchify_GoogleMaps.xcdatamodel */;
+			path = Scratchify_GoogleMaps.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AA9C0FC81E1D34D1000E554C /* Project object */;
+}
