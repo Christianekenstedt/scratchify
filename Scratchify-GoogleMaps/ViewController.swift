@@ -16,6 +16,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var overlay : GMSGroundOverlay? = nil
 
     @IBOutlet var mapView: GMSMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,22 +24,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         
+        
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
-    
-        initImage()
         
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 10
+        locationManager.startUpdatingLocation()
+        
+        initImage()
     
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    @IBAction func eraseClicked(_ sender: Any) {
-        changeOverlay(newCoordinate: (mapView.myLocation?.coordinate)!)
-    }
     func initImage(){
         //let southWest = CLLocationCoordinate2D(latitude: 54.67, longitude: 9.84)
         //let northEast = CLLocationCoordinate2D(latitude: 69.22, longitude: 24.34)
@@ -46,18 +43,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let northEast = CLLocationCoordinate2D(latitude: 59.883425, longitude: 20.10498)
         let overlayBounds = GMSCoordinateBounds(coordinate: southWest, coordinate: northEast)
         
+        var initPos  = mapView.camera(for: overlayBounds, insets: .zero)!
+        mapView.camera = initPos
         
         let topLeft = CLLocationCoordinate2D(latitude: northEast.latitude, longitude: southWest.longitude)
         let bottomRight = CLLocationCoordinate2D(latitude: southWest.latitude , longitude: northEast.longitude)
         
-        var w = GMSGeometryDistance(southWest, bottomRight)
-        var h = GMSGeometryDistance(topLeft, southWest)
+        let w = GMSGeometryDistance(southWest, bottomRight)
+        let h = GMSGeometryDistance(topLeft, southWest)
         
+        let perc = (w-h)/w
         
-        print("width = \(w), height = \(h)")
-        
-        var perc = (w-h)/w
-        print(perc*2000)
         scratchImage = UIImage(color: UIColor.lightGray,size: CGSize(width: 2000, height: 2000*perc))! // att bytas ut!
         let imV = ScratchImageView(image: scratchImage)
         overlay = GMSGroundOverlay(bounds: overlayBounds, icon: imV.image)
@@ -110,9 +106,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         print("Difference topLeft <-> newCoordinate = \(newDifW) i grader")
         print("Difference topLeft ^v newCoordinate = \(newDifH) i grader")
         
-        var x = (newDifW * wDifInPx)
+        let x = (newDifW * wDifInPx)
         var y = (newDifH * hDifInPx)
+        
         y = y * 1.005 // ingen aning om detta funkar i längden, ökar y med 0.05 % för bättre pricksäkerhet.
+        
         print("x=\(x), y=\(y)")
         let one = CGPoint(x: x, y: y)
         let two = CGPoint(x: x, y: y)
@@ -126,7 +124,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("did move")
+        var userLocation = mapView.myLocation?.coordinate
+        
+        for l in locations {
+            print(l.coordinate)
+            userLocation = l.coordinate
+        }
+        
+
+        
+        changeOverlay(newCoordinate: userLocation!)
     }
+    
+    func setMapRegion(){
+        if mapView.isMyLocationEnabled {
+            if let userLocation = mapView.myLocation?.coordinate {
+                let camera = GMSCameraPosition.camera(withLatitude: (userLocation.latitude),longitude: (userLocation.longitude),zoom: 10)
+                mapView.camera = camera
+            }
+        }
+    }
+    
+
 
 
 }

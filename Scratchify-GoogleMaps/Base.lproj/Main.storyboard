@@ -1,15 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C60b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C60b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="p6n-5O-rH6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="uV7-Ak-AC4">
+            <objects>
+                <viewController id="p6n-5O-rH6" customClass="LoginViewController" customModule="Scratchify_GoogleMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l7d-pZ-sxB"/>
+                        <viewControllerLayoutGuide type="bottom" id="8lB-kS-rHk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qLE-BT-DC7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iqz-oN-NMF">
+                                <rect key="frame" x="74" y="318" width="226" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scratchify" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdF-lW-fTB">
+                                <rect key="frame" x="35" y="124" width="305" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="64"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cM-KR-IGf">
+                                <rect key="frame" x="168" y="356" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginBtnPressed:" destination="p6n-5O-rH6" eventType="touchUpInside" id="KLv-M4-766"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="Main View" id="7MP-4C-DS5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.70425386339999996" blue="0.1190857192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aq9-cm-2Iw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-818" y="115"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -26,23 +68,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zn3-MR-sth">
-                                <rect key="frame" x="109" y="612" width="156" height="30"/>
-                                <state key="normal" title="Test erase at location"/>
-                                <connections>
-                                    <action selector="eraseClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fFP-EG-CAV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XBB-Qa-z4c" firstAttribute="leading" secondItem="JLu-QC-vTw" secondAttribute="leading" id="Fma-eX-iyz"/>
                             <constraint firstItem="XBB-Qa-z4c" firstAttribute="top" secondItem="JLu-QC-vTw" secondAttribute="top" id="QOY-lY-rFI"/>
-                            <constraint firstItem="zn3-MR-sth" firstAttribute="leading" secondItem="JLu-QC-vTw" secondAttribute="leadingMargin" constant="93" id="VZb-yd-tzw"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zn3-MR-sth" secondAttribute="bottom" constant="25" id="X9R-WD-w1S"/>
                             <constraint firstAttribute="trailing" secondItem="XBB-Qa-z4c" secondAttribute="trailing" id="gRz-F5-uDq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XBB-Qa-z4c" secondAttribute="bottom" id="l5e-HV-mMw"/>
-                            <constraint firstItem="zn3-MR-sth" firstAttribute="centerX" secondItem="JLu-QC-vTw" secondAttribute="centerX" id="mXo-I6-JQA"/>
                         </constraints>
                     </view>
                     <connections>

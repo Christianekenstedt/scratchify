@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA9085C31E1ED784001BDEC4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9085C21E1ED784001BDEC4 /* LoginViewController.swift */; };
 		AA9C0FD41E1D34D1000E554C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C0FD31E1D34D1000E554C /* AppDelegate.swift */; };
 		AA9C0FD61E1D34D1000E554C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C0FD51E1D34D1000E554C /* ViewController.swift */; };
 		AA9C0FD91E1D34D1000E554C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9C0FD71E1D34D1000E554C /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		0AB33FB952BCCECCC1F7B7B1 /* libPods-Scratchify-GoogleMaps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Scratchify-GoogleMaps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		126F640E2A5FA86F4E76229E /* Pods-Scratchify-GoogleMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scratchify-GoogleMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scratchify-GoogleMaps/Pods-Scratchify-GoogleMaps.release.xcconfig"; sourceTree = "<group>"; };
 		988BD9D43140DF94716700B2 /* Pods-Scratchify-GoogleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scratchify-GoogleMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scratchify-GoogleMaps/Pods-Scratchify-GoogleMaps.debug.xcconfig"; sourceTree = "<group>"; };
+		AA9085C21E1ED784001BDEC4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AA9C0FD01E1D34D1000E554C /* Scratchify-GoogleMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scratchify-GoogleMaps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9C0FD31E1D34D1000E554C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA9C0FD51E1D34D1000E554C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,32 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AA9085BF1E1ED731001BDEC4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AA9C10041E1D3D56000E554C /* ScratchImageView.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		AA9085C01E1ED73D001BDEC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AA9C0FD71E1D34D1000E554C /* Main.storyboard */,
+				AA9C0FDF1E1D34D1000E554C /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AA9085C11E1ED748001BDEC4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AA9C0FD51E1D34D1000E554C /* ViewController.swift */,
+				AA9085C21E1ED784001BDEC4 /* LoginViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		AA9C0FC71E1D34D1000E554C = {
 			isa = PBXGroup;
 			children = (
@@ -117,14 +145,13 @@
 		AA9C0FD21E1D34D1000E554C /* Scratchify-GoogleMaps */ = {
 			isa = PBXGroup;
 			children = (
+				AA9085C11E1ED748001BDEC4 /* Controller */,
+				AA9085C01E1ED73D001BDEC4 /* View */,
+				AA9085BF1E1ED731001BDEC4 /* Model */,
 				AA9C0FD31E1D34D1000E554C /* AppDelegate.swift */,
-				AA9C0FD51E1D34D1000E554C /* ViewController.swift */,
-				AA9C0FD71E1D34D1000E554C /* Main.storyboard */,
 				AA9C0FDD1E1D34D1000E554C /* Assets.xcassets */,
-				AA9C0FDF1E1D34D1000E554C /* LaunchScreen.storyboard */,
 				AA9C0FE21E1D34D1000E554C /* Info.plist */,
 				AA9C0FDA1E1D34D1000E554C /* Scratchify_GoogleMaps.xcdatamodeld */,
-				AA9C10041E1D3D56000E554C /* ScratchImageView.swift */,
 			);
 			path = "Scratchify-GoogleMaps";
 			sourceTree = "<group>";
@@ -228,6 +255,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = R6X4ZRX54X;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					AA9C0FE61E1D34D1000E554C = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -346,6 +378,7 @@
 				AA9C0FD61E1D34D1000E554C /* ViewController.swift in Sources */,
 				AA9C0FD41E1D34D1000E554C /* AppDelegate.swift in Sources */,
 				AA9C0FDC1E1D34D1000E554C /* Scratchify_GoogleMaps.xcdatamodeld in Sources */,
+				AA9085C31E1ED784001BDEC4 /* LoginViewController.swift in Sources */,
 				AA9C10051E1D3D56000E554C /* ScratchImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
