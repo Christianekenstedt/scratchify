@@ -1,26 +1,57 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C60b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Scratchify_GoogleMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="JLu-QC-vTw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBB-Qa-z4c" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zn3-MR-sth">
+                                <rect key="frame" x="109" y="612" width="156" height="30"/>
+                                <state key="normal" title="Test erase at location"/>
+                                <connections>
+                                    <action selector="eraseClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fFP-EG-CAV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XBB-Qa-z4c" firstAttribute="leading" secondItem="JLu-QC-vTw" secondAttribute="leading" id="Fma-eX-iyz"/>
+                            <constraint firstItem="XBB-Qa-z4c" firstAttribute="top" secondItem="JLu-QC-vTw" secondAttribute="top" id="QOY-lY-rFI"/>
+                            <constraint firstItem="zn3-MR-sth" firstAttribute="leading" secondItem="JLu-QC-vTw" secondAttribute="leadingMargin" constant="93" id="VZb-yd-tzw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zn3-MR-sth" secondAttribute="bottom" constant="25" id="X9R-WD-w1S"/>
+                            <constraint firstAttribute="trailing" secondItem="XBB-Qa-z4c" secondAttribute="trailing" id="gRz-F5-uDq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XBB-Qa-z4c" secondAttribute="bottom" id="l5e-HV-mMw"/>
+                            <constraint firstItem="zn3-MR-sth" firstAttribute="centerX" secondItem="JLu-QC-vTw" secondAttribute="centerX" id="mXo-I6-JQA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="XBB-Qa-z4c" id="eY5-0a-5mP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140" y="114.69265367316342"/>
         </scene>
     </scenes>
 </document>
