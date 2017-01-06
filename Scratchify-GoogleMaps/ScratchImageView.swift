@@ -1,6 +1,6 @@
 //
 //  ScratchImageView.swift
-//  Scratchify
+//  Scratchify-GoogleMaps
 //
 //  Created by Christian Ekenstedt on 2016-12-13.
 //  Copyright © 2016 Christian Ekenstedt. All rights reserved.
@@ -8,35 +8,23 @@
 
 import UIKit
 
+/*
+ *  Custom UIImageView that makes it possible to erase from one point to another.
+ */
+
 class ScratchImageView : UIImageView {
     // Properties
     private var previousPoint : CGPoint?
     var lineShape : CGLineCap = .round
     var lineWidth : CGFloat = 10.0
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else{
-            print("No first touch?")
-            return
-        }
-        previousPoint = touch.location(in: self)
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first, let point = previousPoint else{
-            print("Didn't detect move")
-            return
-        }
-        let currentPoint = touch.location(in: self)
-        erase(from: point, toPoint: currentPoint)
-        previousPoint = currentPoint
-    }
-    
+    /*
+     *  Erase function. From point, to point.
+     */
     func erase(from point: CGPoint, toPoint : CGPoint){
         UIGraphicsBeginImageContext(self.frame.size)
         
