@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
+    @IBOutlet weak var nameField: UITextField!
     
+    @IBOutlet weak var errorLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
     
@@ -22,18 +24,23 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginBtnPressed(_ sender: Any) {
-        performSegue(withIdentifier: "Main View", sender: self)
+        
+        if (nameField.text?.characters.count)! < 3 {
+            errorLabel.text = "Name needs to be at least three characters."
+            return
+        }
+        
+        
+        if nameField.text != ""{
+            FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
+                if let err = error {
+                    print(err.localizedDescription)
+                    return
+                }
+                self.performSegue(withIdentifier: "Main View", sender: self)
+            })
+        }else{
+            errorLabel.text = "Please set a name."
+        }
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

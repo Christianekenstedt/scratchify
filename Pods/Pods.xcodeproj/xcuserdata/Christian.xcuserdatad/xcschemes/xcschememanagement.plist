@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>GTMSessionFetcher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Scratchify-GoogleMaps.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -12,7 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8CF37A9C48AF7DE19DA79A36E6DDF1CE</key>
+		<key>0597E693453A9B9EB96A690DAEC03780</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0CE2C5FFABAA8D2B4DF63119BB10DB40</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7BA8C1B4FED8A2CB87582B8CA47EC5E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

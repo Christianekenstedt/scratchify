@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -16,9 +17,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var overlay : GMSGroundOverlay? = nil
 
     @IBOutlet var mapView: GMSMapView!
+
+    /* Firebase references. */
+    private lazy var imagesRef: FIRDatabaseReference = FIRDatabase.database().reference().child("images")
+    
+
     
     let southWest = CLLocationCoordinate2D(latitude: 58.842175, longitude: 16.325684)
     let northEast = CLLocationCoordinate2D(latitude: 59.883425, longitude: 20.10498)
+    
+    
+    @IBAction func testSaveBtn(_ sender: Any) {
+        saveUserImage()
+    }
+    @IBAction func testGetBtn(_ sender: Any) {
+        getUserImage()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +50,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.distanceFilter = 10 // The filter, when it should trigger a location didUpdateLocations (in meters).
         locationManager.startUpdatingLocation() // Starts the update of locations.
         
-        initImage() // Create a new overlay on map.
+        
+        
+        moveCamera()
+        getUserImage() // Create a new overlay on map.
+    }
     
+    func moveCamera(){
+        let overlayBounds = GMSCoordinateBounds(coordinate: southWest, coordinate: northEast) // Set the bounds of the rectangle.
+        
+        let initPos  = mapView.camera(for: overlayBounds, insets: .zero)! // Set the camera at the bounds.
+        mapView.camera = initPos
     }
     
     /*
@@ -60,6 +84,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         scratchImage = UIImage(color: UIColor.lightGray,size: CGSize(width: 2000, height: 2000*perc))! // Create the image with a solid color.
         let imV = ScratchImageView(image: scratchImage) // Create an imageView and set the created image.
+        
+        /* Create the overlay with the image */
+        overlay = GMSGroundOverlay(bounds: overlayBounds, icon: imV.image)
+        overlay!.bearing = 0
+        overlay!.map = mapView // Set the overlay on the current mapView
+    }
+    
+    /*
+     * Init image if ther is an already.
+     */
+    func initImage(savedImage : UIImage) {
+        print("Size of image from Db = \(savedImage.size)")
+        let overlayBounds = GMSCoordinateBounds(coordinate: southWest, coordinate: northEast) // Set the bounds of the rectangle.
+        
+        let imV = ScratchImageView(image: savedImage) // Create an imageView and set the savedImage.
         
         /* Create the overlay with the image */
         overlay = GMSGroundOverlay(bounds: overlayBounds, icon: imV.image)
@@ -126,9 +165,43 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             print(l.coordinate)
             userLocation = l.coordinate
         }
-        changeOverlay(newCoordinate: userLocation!) // Update the overlay.
+        if overlay?.icon != nil {
+            changeOverlay(newCoordinate: userLocation!) // Update the overlay.
+        }
     }
     
+    
+    func getUserImage(){
+        let userId = FIRAuth.auth()?.currentUser?.uid
+        
+        imagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            var dict = snapshot.value as! Dictionary<String, AnyObject>
+            var test : String
+            test = dict[userId!] as! String!
+            print("DATA \(test.characters.count)")
+            self.initImage(savedImage: self.convertToImage(from: test))
+            return
+        })
+    }
+    
+    func saveUserImage(){
+        let userId = FIRAuth.auth()?.currentUser?.uid
+        let userRef = imagesRef.child(userId!)
+        
+        userRef.setValue(convertToNSString(from: (overlay?.icon)!))
+    }
+    
+    func convertToNSString(from image : UIImage) -> NSString {
+        let imageData = UIImagePNGRepresentation(image)
+        let imageString : NSString = imageData!.base64EncodedString(options: .init(rawValue: 0)) as NSString
+        return imageString
+    }
+    
+    func convertToImage(from string: String) -> UIImage{
+        let encodedData = string
+        let imageData = NSData(base64Encoded: encodedData, options: .init(rawValue: 0))
+        return UIImage(data: imageData as! Data)!
+    }
     
     /*
      * Set camera to map region.

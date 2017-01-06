@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,21 +37,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cM-KR-IGf">
-                                <rect key="frame" x="168" y="356" width="38" height="30"/>
+                                <rect key="frame" x="74" y="356" width="226" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" title="Login/Sign up"/>
                                 <connections>
                                     <action selector="loginBtnPressed:" destination="p6n-5O-rH6" eventType="touchUpInside" id="KLv-M4-766"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="Main View" id="7MP-4C-DS5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSx-9g-bzB">
+                                <rect key="frame" x="74" y="394" width="226" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.70425386339999996" blue="0.1190857192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="errorLabel" destination="gSx-9g-bzB" id="4W3-7G-8mt"/>
+                        <outlet property="nameField" destination="iqz-oN-NMF" id="U5V-nf-zUT"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="Main View" id="4z2-EY-7SV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aq9-cm-2Iw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-818" y="115"/>
+            <point key="canvasLocation" x="-798" y="115"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -68,13 +80,31 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LML-Zy-gom">
+                                <rect key="frame" x="111" y="547" width="131" height="30"/>
+                                <state key="normal" title="Get image from DB"/>
+                                <connections>
+                                    <action selector="testGetBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sVA-E5-OV3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51H-sz-PS6">
+                                <rect key="frame" x="82" y="612" width="187" height="30"/>
+                                <state key="normal" title="Test save image to databse"/>
+                                <connections>
+                                    <action selector="testSaveBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lTJ-8U-UgQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LML-Zy-gom" firstAttribute="leading" secondItem="JLu-QC-vTw" secondAttribute="leadingMargin" constant="95" id="5gd-Gf-9v3"/>
                             <constraint firstItem="XBB-Qa-z4c" firstAttribute="leading" secondItem="JLu-QC-vTw" secondAttribute="leading" id="Fma-eX-iyz"/>
+                            <constraint firstItem="51H-sz-PS6" firstAttribute="leading" secondItem="JLu-QC-vTw" secondAttribute="leadingMargin" constant="66" id="JUs-42-qbP"/>
                             <constraint firstItem="XBB-Qa-z4c" firstAttribute="top" secondItem="JLu-QC-vTw" secondAttribute="top" id="QOY-lY-rFI"/>
                             <constraint firstAttribute="trailing" secondItem="XBB-Qa-z4c" secondAttribute="trailing" id="gRz-F5-uDq"/>
+                            <constraint firstItem="51H-sz-PS6" firstAttribute="top" secondItem="LML-Zy-gom" secondAttribute="bottom" constant="35" id="k3x-hC-R4w"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XBB-Qa-z4c" secondAttribute="bottom" id="l5e-HV-mMw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="51H-sz-PS6" secondAttribute="bottom" constant="25" id="nda-9t-tQN"/>
                         </constraints>
                     </view>
                     <connections>
