@@ -19,10 +19,7 @@ class ScratchEngine {
     
         imagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
             var dict = snapshot.value as! Dictionary<String, AnyObject>
-            var test : String
             if let test = dict[userId!] as! String! {
-                print("DATA \(test.characters.count)")
-                //self.initImage(savedImage: )
                 let image = convertToImage(from: test);
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateOverlay"), object: nil, userInfo: ["image":image])
                 return

@@ -19,6 +19,7 @@
 		AA9C0FF71E1D34D2000E554C /* Scratchify_GoogleMapsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C0FF61E1D34D2000E554C /* Scratchify_GoogleMapsUITests.swift */; };
 		AA9C10051E1D3D56000E554C /* ScratchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C10041E1D3D56000E554C /* ScratchImageView.swift */; };
 		AAB3DC241E228CF300B3F4EC /* ScratchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3DC231E228CF300B3F4EC /* ScratchEngine.swift */; };
+		AAB3DC261E229F1A00B3F4EC /* Extentsions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3DC251E229F1A00B3F4EC /* Extentsions.swift */; };
 		D2A8556B6AAEAB1AF1466FA6 /* libPods-Scratchify-GoogleMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB33FB952BCCECCC1F7B7B1 /* libPods-Scratchify-GoogleMaps.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		AA9C0FF81E1D34D2000E554C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9C10041E1D3D56000E554C /* ScratchImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchImageView.swift; sourceTree = "<group>"; };
 		AAB3DC231E228CF300B3F4EC /* ScratchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchEngine.swift; sourceTree = "<group>"; };
+		AAB3DC251E229F1A00B3F4EC /* Extentsions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentsions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				AA9C0FE21E1D34D1000E554C /* Info.plist */,
 				AA3711061E1FB4AE0051E5F0 /* GoogleService-Info.plist */,
 				AA9C0FDA1E1D34D1000E554C /* Scratchify_GoogleMaps.xcdatamodeld */,
+				AAB3DC251E229F1A00B3F4EC /* Extentsions.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA9C0FD61E1D34D1000E554C /* ViewController.swift in Sources */,
+				AAB3DC261E229F1A00B3F4EC /* Extentsions.swift in Sources */,
 				AA9C0FD41E1D34D1000E554C /* AppDelegate.swift in Sources */,
 				AAB3DC241E228CF300B3F4EC /* ScratchEngine.swift in Sources */,
 				AA9C0FDC1E1D34D1000E554C /* Scratchify_GoogleMaps.xcdatamodeld in Sources */,

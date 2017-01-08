@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import Firebase
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
     
     var locationManager = CLLocationManager()
     var scratchImage = UIImage()
@@ -36,21 +36,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization() // If not allowed, request permission to use device location.
         
-        
+        mapView.delegate = self
         mapView.isMyLocationEnabled = true // Set device location on map.
         mapView.settings.myLocationButton = true // Add the "My location button" on map.
         
         locationManager.desiredAccuracy = kCLLocationAccuracyBest // The accuracy of the device location.
         locationManager.distanceFilter = 10 // The filter, when it should trigger a location didUpdateLocations (in meters).
         locationManager.startUpdatingLocation() // Starts the update of locations.
-        
+
         moveCamera()
         ScratchEngine.getUserImage() // Create a new overlay on map.
     }
     
     func moveCamera(){
         let overlayBounds = GMSCoordinateBounds(coordinate: southWest, coordinate: northEast) // Set the bounds of the rectangle.
-        
         let initPos  = mapView.camera(for: overlayBounds, insets: .zero)! // Set the camera at the bounds.
         mapView.camera = initPos
     }
@@ -181,19 +180,41 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-}
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
 
-// LÅNAD EXTENSION! Need to fix.
-public extension UIImage {
-    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
-        let rect = CGRect(origin: .zero, size: size)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
-        color.setFill()
-        UIRectFill(rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        print("Camera changed position.")
+        print(position.zoom)
         
-        guard let cgImage = image?.cgImage else { return nil }
-        self.init(cgImage: cgImage)
+        
+        var latitude  = position.target.latitude;
+        var longitude = position.target.longitude;
+        
+        if (position.target.latitude > northEast.latitude) {
+            latitude = northEast.latitude;
+        }
+        
+        if (position.target.latitude < southWest.latitude) {
+            latitude = southWest.latitude;
+        }
+        
+        if (position.target.longitude > northEast.longitude) {
+            longitude = northEast.longitude;
+        }
+        
+        if (position.target.longitude < southWest.longitude) {
+            longitude = southWest.longitude;
+        }
+        
+        if (latitude != position.target.latitude || longitude != position.target.longitude) {
+            
+            let pos = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            mapView.animate(toLocation: pos)
+            print("animate back.")
+            
+        }
+
+        
     }
+    
 }
