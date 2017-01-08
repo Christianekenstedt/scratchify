@@ -57,14 +57,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func initNotifications() {
         NotificationCenter.default.addObserver(self,selector: #selector(ViewController.trigOverlayUpdate),name: NSNotification.Name(rawValue: "updateOverlay"), object: nil)
+        NotificationCenter.default.addObserver(self,selector: #selector(ViewController.trigNewOverlay),name: NSNotification.Name(rawValue: "newOverlay"), object: nil)
+        NotificationCenter.default.addObserver(self,selector: #selector(ViewController.forceSaveImage),name: NSNotification.Name(rawValue: "saveOverlay"), object: nil)
     }
     
     func trigOverlayUpdate(_ notification: NSNotification){
         if let image = notification.userInfo?["image"] as? UIImage {
             initImage(savedImage: image)
         }
-        
     }
+    
+    func forceSaveImage(){
+        ScratchEngine.saveUserImage(image: (overlay?.icon!)!)
+    }
+    
+    func trigNewOverlay(){
+        initImage()
+    }
+    
     /*
      *  Init the scratch image. A new.
      */
