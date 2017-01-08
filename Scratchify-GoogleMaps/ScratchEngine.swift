@@ -10,9 +10,7 @@ import Foundation
 import Firebase
 
 class ScratchEngine {
-    
-    /* Firebase references. */
-    
+
    static func getUserImage(){
         let userId = FIRAuth.auth()?.currentUser?.uid
         let imagesRef: FIRDatabaseReference = FIRDatabase.database().reference().child("images")
