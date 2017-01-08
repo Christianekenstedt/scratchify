@@ -17,27 +17,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var overlay : GMSGroundOverlay? = nil
 
     @IBOutlet var mapView: GMSMapView!
-
-    /* Firebase references. */
-    private lazy var imagesRef: FIRDatabaseReference = FIRDatabase.database().reference().child("images")
-    
-
     
     let southWest = CLLocationCoordinate2D(latitude: 58.842175, longitude: 16.325684)
     let northEast = CLLocationCoordinate2D(latitude: 59.883425, longitude: 20.10498)
     
-    
     @IBAction func testSaveBtn(_ sender: Any) {
-        saveUserImage()
+        ScratchEngine.saveUserImage(image: (overlay?.icon!)!)
     }
     @IBAction func testGetBtn(_ sender: Any) {
-        getUserImage()
+        ScratchEngine.getUserImage()
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initNotifications()
         // Do any additional setup after loading the view, typically from a nib.
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization() // If not allowed, request permission to use device location.
@@ -50,10 +44,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.distanceFilter = 10 // The filter, when it should trigger a location didUpdateLocations (in meters).
         locationManager.startUpdatingLocation() // Starts the update of locations.
         
-        
-        
         moveCamera()
-        getUserImage() // Create a new overlay on map.
+        ScratchEngine.getUserImage() // Create a new overlay on map.
     }
     
     func moveCamera(){
@@ -63,6 +55,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         mapView.camera = initPos
     }
     
+    func initNotifications() {
+        NotificationCenter.default.addObserver(self,selector: #selector(ViewController.trigOverlayUpdate),name: NSNotification.Name(rawValue: "updateOverlay"), object: nil)
+    }
+    
+    func trigOverlayUpdate(_ notification: NSNotification){
+        if let image = notification.userInfo?["image"] as? UIImage {
+            initImage(savedImage: image)
+        }
+        
+    }
     /*
      *  Init the scratch image. A new.
      */
@@ -119,23 +121,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let difLeftRight = northEast.longitude - topLeft.longitude // Calculate number of degrees longitude that differs between north east and north west coordinate
         let difTopBottom = topLeft.latitude - southWest.latitude // Calculate number of degrees latitude that differs between south west and north west coordinate
         
-        print("")
-        print("Difference <-> = \(difLeftRight)")
-        print("Difference ^v = \(difTopBottom)")
-        
         /* Calculate the relation between pixels and degree */
         let wDifInPx = (newImage?.size.width)! / CGFloat(difLeftRight)
         let hDifInPx = (newImage?.size.height)! / CGFloat(difTopBottom)
         
-        print("Difference <-> = \(wDifInPx) i px")
-        print("Difference ^v = \(hDifInPx) i px")
-        
         /* Calculate the the differance between the new coordinate and the reference coordinate */
         let newDifH = CGFloat(topLeft.latitude-newCoordinate.latitude)
         let newDifW = CGFloat(newCoordinate.longitude-topLeft.longitude)
-        
-        print("Difference topLeft <-> newCoordinate = \(newDifW) i grader")
-        print("Difference topLeft ^v newCoordinate = \(newDifH) i grader")
         
         /* Create the x and y point */
         let x = (newDifW * wDifInPx)
@@ -146,9 +138,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         print("x=\(x), y=\(y)")
         let one = CGPoint(x: x, y: y) // From-point
         let two = CGPoint(x: x, y: y) // To-point
-        
-        /* END TEST */
-
         
         imV.erase(from:  one, toPoint: two) // Erase from to point (Just nu tar den bara bort på en punkt.)
         overlay?.icon = imV.image // Set the new image.
@@ -165,42 +154,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             print(l.coordinate)
             userLocation = l.coordinate
         }
+        
         if overlay?.icon != nil {
             changeOverlay(newCoordinate: userLocation!) // Update the overlay.
         }
-    }
-    
-    
-    func getUserImage(){
-        let userId = FIRAuth.auth()?.currentUser?.uid
-        
-        imagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            var dict = snapshot.value as! Dictionary<String, AnyObject>
-            var test : String
-            test = dict[userId!] as! String!
-            print("DATA \(test.characters.count)")
-            self.initImage(savedImage: self.convertToImage(from: test))
-            return
-        })
-    }
-    
-    func saveUserImage(){
-        let userId = FIRAuth.auth()?.currentUser?.uid
-        let userRef = imagesRef.child(userId!)
-        
-        userRef.setValue(convertToNSString(from: (overlay?.icon)!))
-    }
-    
-    func convertToNSString(from image : UIImage) -> NSString {
-        let imageData = UIImagePNGRepresentation(image)
-        let imageString : NSString = imageData!.base64EncodedString(options: .init(rawValue: 0)) as NSString
-        return imageString
-    }
-    
-    func convertToImage(from string: String) -> UIImage{
-        let encodedData = string
-        let imageData = NSData(base64Encoded: encodedData, options: .init(rawValue: 0))
-        return UIImage(data: imageData as! Data)!
     }
     
     /*
