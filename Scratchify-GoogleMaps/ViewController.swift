@@ -15,6 +15,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     var locationManager = CLLocationManager()
     var scratchImage = UIImage()
     var overlay : GMSGroundOverlay? = nil
+    
+    private var savedCoordinates : [CLLocationCoordinate2D] = []
 
     @IBOutlet var mapView: GMSMapView!
     
@@ -58,6 +60,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         NotificationCenter.default.addObserver(self,selector: #selector(ViewController.trigOverlayUpdate),name: NSNotification.Name(rawValue: "updateOverlay"), object: nil)
         NotificationCenter.default.addObserver(self,selector: #selector(ViewController.trigNewOverlay),name: NSNotification.Name(rawValue: "newOverlay"), object: nil)
         NotificationCenter.default.addObserver(self,selector: #selector(ViewController.forceSaveImage),name: NSNotification.Name(rawValue: "saveOverlay"), object: nil)
+        NotificationCenter.default.addObserver(self,selector: #selector(ViewController.appendBackgroundCoordinates),name: NSNotification.Name(rawValue: "appendCoordinate"), object: nil)
     }
     
     func trigOverlayUpdate(_ notification: NSNotification){
@@ -162,11 +165,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         for l in locations {
             print(l.coordinate)
             userLocation = l.coordinate
+            savedCoordinates.append(l.coordinate)
         }
         
         if overlay?.icon != nil {
             changeOverlay(newCoordinate: userLocation!) // Update the overlay.
         }
+    }
+    
+    func appendBackgroundCoordinates() {
+        print("Erase saved coordinates.")
+        for c in savedCoordinates {
+            changeOverlay(newCoordinate: c)
+        }
+        savedCoordinates = []
     }
     
     /*
@@ -211,7 +223,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
             let pos = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             mapView.animate(toLocation: pos)
             print("animate back.")
-            
         }
 
         
